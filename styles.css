@@ -1,38 +1,38 @@
 
-        :root {
-            --color-primary: #32b8c5;
-            --color-primary-dark: #218896;
-            --color-bg-dark: #0a192f;
-            --color-bg-light: #112240;
-            --color-text: #e6f1ff;
-            --color-text-muted: #8892b0;
-            --color-accent: #64ffda;
-        }
+:root {
+    --color-primary: #32b8c5;
+    --color-primary-dark: #218896;
+    --color-bg-dark: #0a192f;            
+    --color-bg-light: #112240;
+    --color-text: #e6f1ff;
+    --color-text-muted: #8892b0;
+    --color-accent: #64ffda;
+}
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, var(--color-bg-dark) 0%, #1a2744 100%);
-            color: var(--color-text);
-            line-height: 1.6;
-        }
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, var(--color-bg-dark) 0%, #1a2744 100%);
+    color: var(--color-text);
+    line-height: 1.6;
+}
 
-        /* Header Section */
-        header {
-            background: rgba(17, 34, 64, 0.95);
-            backdrop-filter: blur(10px);
-            padding: 1.4rem 0;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-            position: sticky;
-            top: 0;
-            display:block;
-            z-index: 1000;
-        }
+/* Header Section */
+header {
+    background: rgba(17, 34, 64, 0.95);
+    backdrop-filter: blur(10px);
+    padding: 1.4rem 0;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    position: sticky;
+    top: 0;
+    display:block;
+    z-index: 1000;
+}
 
         nav {
             max-width: 1200px;
@@ -117,6 +117,12 @@
             align-items: center;
             gap: 0.8rem;
             color: var(--color-text-muted);
+        }
+
+        .contact-item a{
+            color: var(--color-text-muted);
+            text-decoration: none;
+            align-items: center;
         }
 
         .contact-item i {
@@ -397,7 +403,7 @@
         /*Form Input For Enquiry*/
         .input-card{
             background: var(--color-bg-light);
-            padding: 2em;
+            padding: 2.8em;
             font-size: 1.8em;
             border-radius: 15px;
             line-height: 1.5em;
@@ -420,21 +426,136 @@
 
         .input-card form{
             color: var(--color-text-muted);
-            line-height: 1.8;
+            line-height: 2rem;
             font-size: 1rem;
         }
         
         .input-card button{
-            background-color:whitesmoke;
+            background-color:var(--color-accent);
             padding:15px;
+            align-items: center;
             color: var(--color-bg-dark);
-            border-radius: 25px;
+            border-radius: 15px;
         }
 
         .input-card button:hover{
             border-color: var(--color-accent);
             box-shadow: 0 3px 4px var(--color-accent);
         }
+
+        /* ---------- Precise grid layout for perfect alignment ---------- */
+.input-card form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;    /* two equal columns */
+  gap: 1.2rem;                         /* spacing between fields */
+  align-items: center;
+  width: 70%;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Single-row wrappers (name, subject, message rows) should span both columns */
+.input-card .form-row {
+  grid-column: 1 / -1;
+}
+
+/* For the two-field row, let its children become grid items
+   so email -> col1 and tel -> col2 align perfectly. */
+.input-card .form-row-two {
+  display: contents; /* exposes children to the grid */
+}
+
+/* Ensure inputs & textarea are consistent sizes and box-sizing */
+.input-card input,
+.input-card textarea,
+.input-card button {
+  box-sizing: border-box;
+  width: 100%;
+  margin: 0;
+  font-family: inherit;
+  border-radius: 15px;
+}
+
+/* fixed height for single-line controls so baselines match */
+.input-card input[type="text"],
+.input-card input[type="email"],
+.input-card input[type="tel"] {
+  height: 42px;              /* consistent height for alignment */
+  padding: 0 12px;
+  line-height: 1;
+  border-radius: 15px;
+}
+
+/* larger, fixed textarea height */
+.input-card textarea {
+  min-height: 120px;
+  padding: 12px;
+  resize: vertical;
+  border-radius: 15px;
+  line-height: 1;
+}
+
+/* place the submit button in left column (under name/subject block),
+   aligned to the left like your screenshot */
+.input-card .form-row:last-of-type {
+  grid-column: 1 / 2;      /* button row stays in first column */
+  align-self: start;
+}
+
+/* Make the button its natural size but keep it aligned to left */
+.input-card button[type="submit"] {
+  display: inline-block;
+  padding: 12px 18px;
+  min-height: 44px;
+  box-sizing: border-box;
+  margin: 0;
+  width: 60%;               /* natural width */
+  align-items: center;
+}
+
+/* If you want the button centered under first column instead:
+   uncomment the next rule */
+/* .input-card .form-row:last-of-type { justify-self: center; } */
+
+/* small adjustment so inputs inside form-row-two are equal height */
+.input-card .form-row-two > input {
+  height: 48px;
+}
+
+/* ---------- Responsive: collapse to single column on small screens ---------- */
+@media (max-width: 600px) {
+  .input-card form {
+    grid-template-columns: 1fr;   /* single column */
+    gap: 0.9rem;
+  }
+
+  /* all rows span single column */
+  .input-card .form-row,
+  .input-card .form-row-two {
+    grid-column: 1 / -1;
+    display: block;              /* ensure normal flow */
+  }
+
+  /* make the button full width on narrow screens */
+  .input-card .form-row:last-of-type {
+    grid-column: 1 / -1;
+  }
+
+  .input-card button[type="submit"] {
+    width: 80%;
+  }
+
+  /* scale down textarea a little on tiny screens */
+  .input-card textarea { min-height: 140px; }
+}
+
+/* ---------- Micro-polish: remove extra vertical gaps from default <br> (if any) ---------- */
+.input-card input + br,
+.input-card textarea + br {
+  display: none;
+}
+
 
         /* Footer */
         footer {
@@ -492,7 +613,7 @@
         }
 
 
-        /* Chrome, Edge, Safari, Opera */
+/* Chrome, Edge, Safari, Opera */
 ::-webkit-scrollbar {
   width: px;
 }

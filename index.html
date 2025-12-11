@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-    
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width initial-scale=1.0">
@@ -44,25 +43,31 @@
             
             <div class="contact-info">
                 <div class="contact-item">
-                    <i class="fas fa-envelope"></i>
-                    <span>agarwaladarsh2006@gmail.com</span>
+                    <a href="mailto:agarwaladarsh2006@gmail.com">
+                        <i class="fas fa-envelope"></i> &nbsp;
+                        <span>agarwaladarsh2006@gmail.com</span>
+                    </a>    
                 </div>
                 <div class="contact-item">
-                    <i class="fas fa-phone"></i>
-                    <span>+91 9002794637</span>
+                    <a href="tel:+91 9002794637">
+                        <i class="fas fa-phone"></i> &nbsp;
+                        <span>+91 9002794637</span>
+                    </a>
                 </div>
                 <div class="contact-item">
-                    <i class="fas fa-map-marker-alt"></i>
-                    <span>Kalimpong, West Bengal - 734301</span>
+                    <a href="google.com/maps/place/Kalimpong,+West+Bengal/@27.0620078,88.4772456,13z/data=!3m1!4b1!4m6!3m5!1s0x39e421ff94ad4ae1:0x1afb5b8db2de1c2f!8m2!3d27.0593562!4d88.4694535!16zL20vMDIzMjI4?entry=ttu&g_ep=EgoyMDI1MTEzMC4wIKXMDSoASAFQAw%3D%3D">
+                        <i class="fas fa-map-marker-alt"></i> &nbsp;
+                        <span>Kalimpong, West Bengal - 734301</span>
+                    </a>    
                 </div>
                 <div class="contact-item">
                     <i class="fas fa-calendar"></i>
                     <span>Born: September 29, 2006</span>
                 </div>
                 <div class="contact-item">
-                    <a href="Adarsh_CV.pdf" target="_blank" rel="noopener noreferrer" style="text-decoration: none; align-items: center;">
-                        <i class="fas fa-file-pdf"></i>
-                        <span style="color: var(--color-text-muted); ">View my CV</span>
+                    <a href="Adarsh_CV.pdf" target="_blank" rel="noopener noreferrer">
+                        <i class="fas fa-file-pdf"></i> &nbsp;
+                        <span>  View my CV</span>
                     </a>
                 </div>
             </div>
@@ -82,9 +87,7 @@
                 </a>
                 
             </div>
-        </div>
-
-        
+        </div>  
     </section>
 
     <!-- Education Section -->
@@ -96,7 +99,7 @@
                 <div class="duration"><i class="far fa-calendar"></i> 2025 - 2029</div>
                 <h4 style="color: var(--color-text); margin-bottom: 1rem;">Parul University, Vadodara</h4>
                 <ul>
-                    <li>Studied core modules including Network Security, Cryptography, Ethical Hacking, and Secure Coding</li>
+                    <li>Studied core modules including Network Security, Ethical Hacking, and Secure Coding</li>
                     <li>Gained hands-on experience in cyber risk assessment, security of web applications</li>
                     <li>Specialized in development of secure systems and penetration testing</li>
                 </ul>
@@ -269,22 +272,36 @@
     </section>
 
     <section id="input">
-        <h2 class="section-title"><i class="fas fa-envelope"></i> Contact Me</h2>
-        <div class="input-card">
-            <h3>Please provide your information below, and we will get in touch with you.</h3>
-            <form>
-                <label for="name">Enter Your Name:</label>
-                <input type="text" name="name" id="name" placeholder="Your Name" required><br>
-                <label for="tel">Enter Your Number:</label>
-                <input type="tel" name="tel" id="tel" placeholder="Your Contact Number"><br>
-                <label for="email">Enter Your Email:</label>
-                <input type="email" name="email" id="email" placeholder="Your Email" required><br>
-                <label for="message">Enter your message:</label>
-                <textarea name="message" id="message" placeholder="Your Message" rows="5" columns="30" required></textarea><br>
+    <h2 class="section-title"><i class="fas fa-envelope"></i> Contact Me</h2>
+
+    <div class="input-card">
+        <form name="contact" method="post" netlify>
+
+            <!-- Row 1: Name -->
+            <div class="form-row">
+                <input type="text" name="name" id="name" placeholder="Your Name" required>
+            </div>
+
+            <!-- Row 2: Email + Contact Number -->
+            <div class="form-row form-row-two">
+                <input type="email" name="email" id="email" placeholder="Your Email" required>
+                <input type="tel" name="tel" id="tel" placeholder="Your Contact Number">
+            </div>
+
+            <!-- Row 4: Message -->
+            <div class="form-row">
+                <textarea name="message" id="message" placeholder="Message..." rows="5" required></textarea>
+            </div>
+
+            <!-- Row 5: Button -->
+            <div class="form-row">
                 <button type="submit">Send Message</button>
+            </div>
+
         </form>
-        </div>
+    </div>
     </section>
+
 
     <!-- Footer -->
     <footer>
